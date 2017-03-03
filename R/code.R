@@ -24,13 +24,10 @@
 #' @template references
 #' @export
 createInstance <- function(of, with = NA, inherits = FALSE, attributes = NULL) {
+  cls <- if (inherits) unique(c(of, class(with))) else of
   if (!length(attributes)) {
-    structure(with, class = if (inherits) c(of, class(with)) else of)
+    structure(with, class = cls)
   } else {
-    do.call(structure,
-      args = c(
-        list(.Data = with, class = if (inherits) c(of, class(with)) else of),
-        attributes)
-    )
+    do.call(structure, args = c(list(.Data = with, class = cls), attributes))
   }
 }
