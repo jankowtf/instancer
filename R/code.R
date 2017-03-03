@@ -14,6 +14,8 @@
 #' @param inherits \code{\link{logical}}.
 #' \code{TRUE}: resulting object inherits from class(es) of \code{with}.
 #' \code{FALSE} (default): resulting object only has class \code{of}.
+#' @param attributes \code{\link{list}}
+#' Attributes to be passed along to the instance. Supply as a named list.
 #' @example inst/examples/createInstance.R
 #' @seealso \code{
 #'   	\link[instancer]{TODO}
@@ -21,6 +23,14 @@
 #' @template authors
 #' @template references
 #' @export
-createInstance <- function(of, with = NA, inherits = FALSE) {
-  structure(with, class = if (inherits) c(of, class(with)) else of)
+createInstance <- function(of, with = NA, inherits = FALSE, attributes = NULL) {
+  if (!length(attributes)) {
+    structure(with, class = if (inherits) c(of, class(with)) else of)
+  } else {
+    do.call(structure,
+      args = c(
+        list(.Data = with, class = if (inherits) c(of, class(with)) else of),
+        attributes)
+    )
+  }
 }

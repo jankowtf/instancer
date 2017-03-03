@@ -4,7 +4,7 @@
 \alias{createInstance}
 \title{Create instance object}
 \usage{
-createInstance(of, with = NA, inherits = FALSE)
+createInstance(of, with = NA, inherits = FALSE, attributes = NULL)
 }
 \arguments{
 \item{of}{\code{\link{character}}.
@@ -16,6 +16,9 @@ Any object that should act as the actual data of the instance.}
 \item{inherits}{\code{\link{logical}}.
 \code{TRUE}: resulting object inherits from class(es) of \code{with}.
 \code{FALSE} (default): resulting object only has class \code{of}.}
+
+\item{attributes}{\code{\link{list}}
+Attributes to be passed along to the instance. Supply as a named list.}
 }
 \description{
 Convenience wrapper around `structure()`.
@@ -27,6 +30,8 @@ None yet.
 createInstance(of = "Testclass")
 createInstance(of = "Testclass", with = letters[1:3])
 createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE)
+createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE,
+  attributes = list(attr_1 = TRUE, attr_2 = "yep!"))
 }
 \author{
 Janko Thyson \email{janko.thyson@gmail.com}

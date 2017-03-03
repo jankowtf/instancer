@@ -14,3 +14,15 @@ test_that("create instance works", {
   expect_identical(createInstance(of, with, inherits = TRUE), target_3)
 
 })
+
+test_that("attributes work", {
+
+  of <- "Testclass"
+  with <- letters[1:5]
+
+  target_1 <- structure(NA, class = of, attr_1 = TRUE, attr_2 = "yep!")
+
+  expect_identical(createInstance(of,
+    attributes = list(attr_1 = TRUE, attr_2 = "yep!")), target_1)
+
+})
