@@ -1,0 +1,29 @@
+---
+title: "Introduction"
+author: "Janko Thyson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{README}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+run <- FALSE
+root_dir <- paste(rep("../", 1), collapse = "")
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
+knitr::opts_knit$set(root.dir = root_dir)
+```
+
+# TODO
+
+* Flesh out
+
+# Example
+
+```{r}
+createInstance(of = "Testclass")
+createInstance(of = "Testclass", with = letters[1:3])
+```
+
