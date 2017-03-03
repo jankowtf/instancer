@@ -18,11 +18,51 @@ require("devtools")
 devtools::install_github("rappster/instancer")
 require("instancer")
 ```
-## Examples
+## Create instances 
 
 ```
 createInstance(of = "Testclass")
 createInstance(of = "Testclass", with = letters[1:3])
+createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE)
+```
+
+## Use with S3 methods 
+
+### Create methods
+
+```
+foo <- function(x, context) {
+  UseMethod("foo", x)
+}
+
+foo.Testclass1 <- function(x, context = NULL) {
+  UseMethod("foo.Testclass1", context)
+}
+
+foo.Testclass1.NULL <- function(x, context = NULL) {
+  "Hello World!"
+}
+
+foo.Testclass1.Context1 <- function(x, context) {
+  "I'm the method for context 1"
+}
+
+foo.Testclass1.Context2 <- function(x, context) {
+  "I'm the method for context 2"
+}
+```
+
+### Call methods
+
+```
+x <- createInstance("Testclass1")
+foo(x)
+
+ctxt_1 <- createInstance("Context1")
+foo(x = x, context = ctxt_1)
+
+ctxt_2 <- createInstance("Context2")
+foo(x = x, context = ctxt_2)
 ```
 
 ## Vignettes
