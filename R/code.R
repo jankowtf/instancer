@@ -22,5 +22,5 @@
 #' @template references
 #' @export
 createInstance <- function(of, with = NA, inherits = FALSE) {
-  structure(with, class = if (inherits) c(of, class(of)) else of)
+  structure(with, class = if (inherits) c(of, class(with)) else of)
 }
