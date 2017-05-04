@@ -18,7 +18,7 @@ None yet
  \itemize{
    \item{\code{\link[instancer]{createInstance}}: }{
 
-     createInstance(of = "Testclass", with = letters[1:3])
+     createInstance(of = "test_class", with = letters[1:3])
    }
 }
 }
@@ -43,13 +43,13 @@ This package was inspired by:
    }
 }
 }
-\author{
-Janko Thyson \email{janko.thyson@gmail.com}
-}
+
 \references{
 \url{http://github.com/rappster/instancer}
 }
 \seealso{
 \url{https://github.com/rappster/instancer}
 }
-
+\author{
+Janko Thyson \email{janko.thyson@gmail.com}
+}

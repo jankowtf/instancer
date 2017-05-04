@@ -41,33 +41,15 @@ foo <- function(x, ...) {
   UseMethod("foo", x)
 }
 
-foo.test_class <- function(x, context = NULL) {
-  UseMethod("foo.test_class", context)
-}
-
-foo.test_class1.NULL <- function(x, context = NULL) {
-  "Hello World!"
-}
-
-foo.test_class1.Context1 <- function(x, context) {
-  "I'm the method for context 1"
-}
-
-foo.test_class1.Context2 <- function(x, context) {
-  "I'm the method for context 2"
+foo.test_class <- function(x, ...) {
+  print("hello world")
 }
 ```
 
 ## Call methods
 
 ```{r}
-x <- createInstance("test_class1")
+x <- createInstance("test_class")
 foo(x)
-
-ctxt_1 <- createInstance("Context1")
-foo(x = x, context = ctxt_1)
-
-ctxt_2 <- createInstance("Context2")
-foo(x = x, context = ctxt_2)
 ```
 

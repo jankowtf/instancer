@@ -1,0 +1,37 @@
+---
+title: "Multi dispatch"
+author: "Janko Thyson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{README}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+run <- FALSE
+root_dir <- paste(rep("../", 1), collapse = "")
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
+knitr::opts_knit$set(root.dir = root_dir)
+```
+
+# Generic function
+
+```{r}
+preprocess <- function(dat, ...) {
+  UseMethod("preprocess", dat)
+}
+```
+
+# Default method
+
+Suppose you had a very specific preprocessing goal in mind that was based on taking a `data.frame` as an input
+
+```{r}
+preprocess.data.frame <- function(dat, ...) {
+  dat[nrow(dat), ]
+}
+preprocess(mtcars)
+```
+

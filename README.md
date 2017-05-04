@@ -21,55 +21,38 @@ require("instancer")
 ## Create instances 
 
 ```
-createInstance(of = "Testclass")
-createInstance(of = "Testclass", with = letters[1:3])
-createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE)
+createInstance(of = "test_class")
+createInstance(of = "test_class", with = letters[1:3])
+createInstance(of = "test_class", with = letters[1:3], inherits = FALSE)
 
-createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE,
+createInstance(of = "test_class", with = letters[1:3],
   attributes = list(attr_1 = TRUE, attr_2 = "yep!"))
-createInstance(of = "Testclass", with = letters[1:3], inherits = TRUE,
+createInstance(of = "test_class", with = letters[1:3],
   attributes = list(my_attrs = list(attr_1 = TRUE, attr_2 = "yep!")))
 ```
 
-## Use with S3 methods 
+# Use in S3 methods
 
-### Create methods
+## Create methods
 
 ```
-foo <- function(x, context) {
+foo <- function(x, ...) {
   UseMethod("foo", x)
 }
 
-foo.Testclass1 <- function(x, context = NULL) {
-  UseMethod("foo.Testclass1", context)
-}
-
-foo.Testclass1.NULL <- function(x, context = NULL) {
-  "Hello World!"
-}
-
-foo.Testclass1.Context1 <- function(x, context) {
-  "I'm the method for context 1"
-}
-
-foo.Testclass1.Context2 <- function(x, context) {
-  "I'm the method for context 2"
+foo.test_class <- function(x, ...) {
+  print("hello world")
 }
 ```
 
-### Call methods
+## Call methods
 
 ```
-x <- createInstance("Testclass1")
+x <- createInstance("test_class")
 foo(x)
-
-ctxt_1 <- createInstance("Context1")
-foo(x = x, context = ctxt_1)
-
-ctxt_2 <- createInstance("Context2")
-foo(x = x, context = ctxt_2)
 ```
 
 ## Vignettes
 
 - [Introduction](https://github.com/rappster/instancer/tree/master/vignettes/introduction.Rmd) (rendered versions available in R via `vignette("introduction", package = "instancer")`)
+- [Multi dispatch (draft)](https://github.com/rappster/instancer/tree/master/vignettes/multi_dispatch.Rmd) (rendered versions available in R via `vignette("multi_dispatch", package = "instancer")`)

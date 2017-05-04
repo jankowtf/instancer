@@ -1,7 +1,7 @@
 Package: instancer
 Type: Package
 Title: Simple instantiation for S3
-Version: 0.1.3
+Version: 0.2
 Author: Janko Thyson
 Maintainer: Janko Thyson <janko.thyson@gmail.com>
 Description: Currently only a convenience wrapper around `structure()` in
@@ -10,4 +10,4 @@ Description: Currently only a convenience wrapper around `structure()` in
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

@@ -13,7 +13,7 @@
 #'  \itemize{
 #'    \item{\code{\link[instancer]{createInstance}}: }{
 #'
-#'      createInstance(of = "Testclass", with = letters[1:3])
+#'      createInstance(of = "test_class", with = letters[1:3])
 #'    }
 #' }
 #'
